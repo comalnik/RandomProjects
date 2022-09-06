@@ -1,0 +1,12 @@
+import re
+in1 = input("Input filename: ")
+in2 = input("Output filename: ")
+open1 = open(in2, "w")
+open = open(in1, 'r')
+file = open.read()
+lines = str(file)
+x = re.sub(r"\([^()]*\)", "", lines)
+print(x)
+open.close()
+open1.write(x)
+open1.close()
