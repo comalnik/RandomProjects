@@ -39,9 +39,14 @@ for i in range(len(list)):
 		
 	else:
 		 mystr += ""+ str(x)
+		 
 
+if n == 0:
+	result = 1
 
 if ques == "Y":
+	if n == 0:
+		print(result)
 	#print(list)
 	print(mystr)
 
