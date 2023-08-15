@@ -1,0 +1,8 @@
+NAME="GentOwO"
+PRETTY_NAME="GentOwO"
+ID=gentowo
+ID_LIKE=gentoo
+BUILD_ID="1"
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://github.com/comalnik/gentowo"
+LOGO=gentowo-logo
