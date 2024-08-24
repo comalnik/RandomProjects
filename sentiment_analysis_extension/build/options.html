@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="options.css"> 
+    <script src="options.js"></script>
+    <title>Sentiment</title>
+    <style>
+/* General styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Header styles */
+header {
+    background-color: #6a0dad; 
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: #ffffff;
+}
+
+/* Content container */
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: calc(100% - 80px); /* Subtract header height */
+    padding: 20px;
+}
+
+/* Flexbox for upper and bottom rows */
+.upper-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.left-panel {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #333;
+    text-align: left;
+}
+
+table th {
+    background-color: #333;
+    color: #ffffff;
+}
+
+table tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+table tr:nth-child(odd) {
+    background-color: #1e1e1e;
+}
+
+/* Input and button styles */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+button,
+input[type="submit"] {
+    background-color: #6a0dad; 
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #7b1fa2;
+}
+
+/* New layout for input and buttons */
+.newrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px; /* Adjusted margin to reduce space */
+}
+
+.newrow input[type="text"] {
+    flex-grow: 1;
+}
+
+/* Bottom row styles */
+.bottom-row {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border-radius: 4px;
+    border: 1px solid #333;
+    padding: 10px;
+    height: 100%; /* Use full height of bottom row */
+    resize: none;
+}
+
+/* Scrollable list (for dynamic rows) */
+#scrollableList {
+    max-height: 100%;
+    overflow-y: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensures the left panel content takes up full height */
+.left-panel input[type="text"],
+.left-panel button,
+.left-panel .input-box {
+    margin-top: 10px; /* Reduced the margin for better spacing */
+    margin-bottom: 0;
+    display: block; /* Ensure the elements stack properly */
+}
+
+.left-panel .input-box {
+    margin-top: auto;
+    margin-bottom: 0;
+    padding: 0; /* Remove extra padding */
+    display: block; /* Stack content properly */
+    width: 100%; /* Ensures no extra spacing is added */
+}
+
+    </style>
+
+<script defer src="background.js"></script><script defer src="content.js"></script><script defer src="options.js"></script></head>
+<body>
+
+    <header>
+        <h1>Settings</h1>
+    </header>
+
+    <div class="content">
+        <div class="upper-row">
+            <div class="left-panel" id="scrollableList">
+                <table id="dynamicTable">
+                    <thead>
+                        <tr>
+                            <th>Label</th>
+                            <th>Options</th>
+                            <th>Censor all</th>
+                            <th>Text color</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be added dynamically here -->
+                    </tbody>
+                </table>
+
+                <div class="newrow">
+                <input type="text" id="newItemLabel" placeholder="Enter label for new item">
+                <button id="add_new_row">Add New Row</button>
+                <button id="submit_changes">Submit Changes</button>
+            </div>
+                <div class="input-box">
+                                        <input type="submit" id="update_blacklist" value="update blacklist">
+                </div>
+
+
+            </div>
+            
+        </div>
+        <div class="bottom-row">
+            <!-- Editable text area -->
+            <textarea id="blacklist_txt" placeholder="Blacklist"></textarea>
+        </div>
+    </div>
+    
+  </body>
+
+</body>
+</html>
